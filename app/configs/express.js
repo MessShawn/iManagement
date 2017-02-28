@@ -16,12 +16,13 @@ var express = require('express'),
     compression = require('compression'),
     favicon = require('serve-favicon'),
     path = require('path'),
-    morgan = require('morgan');
+    morgan = require('morgan'),
+    passport = require('passport');
 
 
 var env = process.env.NODE_ENV || 'development';
 
-module.exports = function(app, config, passport) {
+module.exports = function(app, config) {
     app.set('showStackError', true);
 
     // should be placed before express.static

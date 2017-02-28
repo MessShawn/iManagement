@@ -7,8 +7,6 @@ var express = require('express'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
     mongoose = require('mongoose'),
-    passport = require('passport'),
-    LocalStrategy = require('passport-local').Strategy,
     fs = require("fs");
 
 var env = process.env.NODE_ENV || "development",
@@ -50,11 +48,11 @@ fs.readdirSync(models_path).forEach(function(file) {
 
 var passportConfig = require("./app/configs/passport");
 // bootstrap passport config
-require("./app/configs/passport")(passport, passportConfig);
+require("./app/configs/passport")(passportConfig);
 
 var app = express();
 // express settings
-require("./app/configs/express")(app, appConfig, passport);
+require("./app/configs/express")(app, appConfig);
 
 // Bootstrap routes
 var routes = require('./app/routes/index');
