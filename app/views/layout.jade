@@ -1,12 +1,17 @@
 doctype html
 html
-  head
-    title= title
-    meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    link(href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css', rel='stylesheet', media='screen')
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
-
-  script(src='http://code.jquery.com/jquery.js')
-  script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js')
+    head
+        title= title
+        base(href="/")
+        meta(charset="UTF-8")
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        link(rel='stylesheet', href='stylesheets/styles.css', media='screen')
+        script(src='vendor/core-js/client/shim.min.js')
+        script(src='vendor/zone.js/dist/zone.js')
+        script(src='vendor/systemjs/dist/system.src.js')
+        script(src='dist/systemjs.config.js')
+        script(type="text/javascript").
+            System.import('dist/main.js').catch(function(err){ console.error(err)})
+            
+    body
+        block content
