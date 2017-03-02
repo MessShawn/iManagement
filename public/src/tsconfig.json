@@ -9,7 +9,7 @@
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true,
     "outDir": "../dist/app",
-    "baseUrl": "../vendor/"
+    "baseUrl": "../node_modules/"
   },
   "include": [
     "./app/**/*"
