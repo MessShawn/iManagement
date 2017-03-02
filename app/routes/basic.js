@@ -4,7 +4,8 @@ var mongoose = require('mongoose'),
     User = mongoose.model('User'),
     passport = require('passport'),
     express = require('express'),
-    router = express.Router();
+    router = express.Router(),
+    requireAuthentication = require('../requireAuthentication');
 
 
 /* GET home page. */
@@ -40,11 +41,9 @@ router.get('/', function(req, res) {
 //     });
 // });
 //
-// router.post('/login', passport.authenticate('local'), function(req, res) {
-//     var redirectTo = req.session.returnTo ? req.session.returnTo : '/';
-//     delete req.session.returnTo;
-//     res.redirect(redirectTo);
-// });
+router.post('/login', requireAuthentication, function(req, res, next) {
+    res.json(req.user);
+});
 //
 // router.get('/logout', function(req, res) {
 //     req.logout();

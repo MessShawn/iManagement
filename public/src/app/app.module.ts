@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }    from '@angular/forms';
 
 import { AppComponent }  from './app.component.js';
+import { PageNotFoundComponent }   from './not-found.component.js';
 import { AppRoutingModule } from './app-routing.module.js';
 import { HomeModule }     from './home/home.module.js';
 
@@ -15,7 +16,8 @@ import { HomeModule }     from './home/home.module.js';
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   declarations: [
-    AppComponent
+    AppComponent,
+    PageNotFoundComponent
   ],
   bootstrap: [AppComponent]
 })
